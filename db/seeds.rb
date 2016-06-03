@@ -1,1 +1,1 @@
-Role.create([{ name: 'admin' }, { name: 'user' }, { name: 'moderator' }])
+Role.create([{ name: 'admin' }, { name: 'user' }])
