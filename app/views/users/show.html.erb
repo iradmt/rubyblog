@@ -1,0 +1,8 @@
+<div>
+	<p>Name: <%=@user.name%></p>
+	<p>Email: <%=@user.email%></p>
+	<p>Articles: <%=@user.articles.count%></p>
+	<p>Comments: <%=@user.comments.count%></p>
+	<hr>
+	<%= render @user.articles %>
+</div>
