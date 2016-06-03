@@ -1,0 +1,5 @@
+<div>
+	<p>Body: <%=comment.text%></p>
+	<p>Created at: <%=comment.created_at%></p>
+	<%= link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' } %> 
+</div>

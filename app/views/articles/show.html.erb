@@ -2,6 +2,10 @@
 	<p>Title: <%=@article.title%></p>
 	<p>Content: <%=@article.content%></p>
 	<p>Created at: <%=@article.created_at%></p>
+	<p>Comments</p>
+	<%=render @comments%>
+	<p>Add comment</p>
+	<%=render 'comments/form'%>
 	<%= link_to 'Edit', edit_article_path(@article) %> |
 	<%= link_to 'List articles', articles_path %>
 </div>
