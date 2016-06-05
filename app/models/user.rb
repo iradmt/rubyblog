@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	belongs_to :role
 	validates :name, presence:true, length: { minimum: 2 }
-	validates :password, presence:true, length: { minimum: 6 }
 
 	def has_role?(role)
 		return self.role==Role.find_by_name(role.to_sym)
@@ -23,7 +22,7 @@ class User < ActiveRecord::Base
 	end
 
 	def set_admin
-		self.role=Role.find_by_name("admin")
+		self.role = Role.find_by_name("admin")
 	end
 
 	private
