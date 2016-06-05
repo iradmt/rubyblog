@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	before_create :add_role
+	before_save { self.email = email.downcase }
 
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	belongs_to :role
 	validates :name, presence:true, length: { minimum: 2 }
+	validates :password, presence:true, length: { minimum: 6 }
 
 	def has_role?(role)
 		return self.role==Role.find_by_name(role.to_sym)
