@@ -1,4 +1,14 @@
-<%= link_to 'Create article', new_article_path %>
-<div>
-	<%= render @articles %>
+<div class='container'>
+	<h1>Last publications</h1>
+	<% if @articles.empty? %>
+		<h4>There are no articles yet.</h4>
+	<% else %>
+		<%= render @articles %>
+	<% end %>
+	<% if can? :create, Article %>
+		<%= link_to 'Create article', new_article_path, class: 'btn btn-default' %>
+	<% else %>
+		<h4>To create article you should <%= link_to "sign in", new_user_session_path%> or <%= link_to "sign up", new_user_registration_path%>.
+		</h4>
+	<% end %>
 </div>

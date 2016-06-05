@@ -1,8 +1,13 @@
-<div>
-	<p>Title: <%=article.title%></p>
-	<p>Text: <%=article.content%></p>
-	<p>Author: <%=article.user.name%></p>
-	<%= link_to 'Show', article_path(article) %>
-	<%= link_to 'Edit', edit_article_path(article) %>
-	<%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
+	<h2><%=article.title%></h2>
+	<p><%=article.content%></p>
+	<p style="margin-top: 10px; color: gray;">Created by <%= link_to article.user.name, user_path(article.user.id) %>, <%=article.created_at%></p>
+	<% if can? :read, article %>
+		<%= link_to 'Read', article_path(article) %>
+	<% end %>
+	<% if can? :update, article %>
+		 | <%= link_to 'Edit', edit_article_path(article) %>
+	<% end %>
+	<% if can? :destroy, article %>
+		 | <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	<hr>

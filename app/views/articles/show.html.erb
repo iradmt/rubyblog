@@ -1,13 +1,29 @@
-<div>
-	<p>Title: <%=@article.title%></p>
-	<p>Content: <%=@article.content%></p>
-	<p>Created at: <%=@article.created_at%></p>
-	<p>Author: <%=@article.user.name%></p>
+<div class='container'>
+	<h2><b><%=@article.title%></b></h2>
+	<p><%=@article.content%></p>
+	<p style="margin-top: 10px; color: gray;">Created by <%= link_to @article.user.name, user_path(@article.user.id) %>, <%=@article.created_at%></p>
+	<% if can? :update, @article %>
+		<%= link_to 'Edit', edit_article_path(@article) %>
+	<% end %>
+	<% if can? :destroy, @article %>
+		 | <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
 	<hr>
-	<p>Comments</p>
-	<%=render @comments%>
-	<p>Add comment</p>
-	<%=render 'comments/form'%>
-	<%= link_to 'Edit', edit_article_path(@article) %> |
-	<%= link_to 'List articles', articles_path %>
+	<h3><b>Comments</b></h3>
+	<div style="padding-left: 30px;">
+		<% if @comments.empty? %>
+			<p>No comments.</p>
+		<%else%>
+			<%= render @comments %>
+		<%end%>
+		<h3>Add comment</h3>
+		<% if can? :create, Comment %>
+			<%= render 'comments/form' %>
+		<%else%>
+			<p>
+				To comment this article <%= link_to "sign in", new_user_session_path%> or <%= link_to "sign up", new_user_registration_path%>.
+			</p>
+		<%end%>
+	</div>
+</div>
 </div>

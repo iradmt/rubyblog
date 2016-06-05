@@ -13,4 +13,11 @@ class UsersController < ApplicationController
 		@user.destroy
 		redirect_to users_path
 	end
+
+	def set_admin
+		@user = User.find(params[:id])
+    	@user.set_admin
+    	@user.save
+    	redirect_to @user
+	end
 end

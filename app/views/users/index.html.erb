@@ -1,1 +1,8 @@
-<%= render @users %>
+<div class="container">
+	<h1>Blogs</h1>
+	<% if @users.empty? %>
+		<p>There are no blogs yet.</p>
+	<% else %>
+		<%= render @users %>
+	<% end %>
+</div>

@@ -1,6 +1,11 @@
-<div>
-	<p>Name: <%=user.name%></p>
-	<p>Email: <%=user.email%></p>
-	<%= link_to 'Show', user_path(user) %>
-	<%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class='panel panel-default'>
+<div class='panel-body'>
+	<p><b>Author:</b> <%=user.name%></p>
+	<p><b>Articles:</b> <%=user.articles.count%></p>
+	<p><b>Comments:</b> <%=user.count_articles_comments%></p>
+	<%= link_to 'Read', user_path(user) %>
+	<% if can? :destroy, user %>
+		 | <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	</div>
 </div>

@@ -1,5 +1,5 @@
-<%= form_for(@article) do |f| %>
-  <%= render 'errors/article_errors' %>
+<%= form_for [@user, @user.articles.build] do |f| %>
+  <%= render 'errors/article_errors_inline' %>
   <div class="field form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: 'form-control' %>

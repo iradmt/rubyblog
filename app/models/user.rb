@@ -12,6 +12,18 @@ class User < ActiveRecord::Base
 		return self.role==Role.find_by_name(role.to_sym)
 	end
 
+	def count_articles_comments
+		cnt=0
+		self.articles.each do |article|
+			cnt+=article.comments.count
+		end
+		return cnt
+	end
+
+	def set_admin
+		self.role=Role.find_by_name("admin")
+	end
+
 	private
 		def add_role
 			self.role ||= Role.find_by_name("user")

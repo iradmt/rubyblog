@@ -1,2 +1,91 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+h1 {
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.panel-footer {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+body, .btn {
+  font-size: 16px;
+  color: #060C19;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #A5724A;
+}
+
+a:focus, a:hover {
+  color: #7C5F49;
+}
+
+.navbar-inverse {
+    background-color: #010F32;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #A5744A;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #A5744A;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-text {
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #E9CCB3;
+  background-color: transparent;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #EAEAEA;
+  color: #999;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
