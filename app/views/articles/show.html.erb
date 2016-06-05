@@ -1,7 +1,7 @@
 <div class='container'>
 	<h2><b><%=@article.title%></b></h2>
 	<p><%=@article.content%></p>
-	<p style="margin-top: 10px; color: gray;">Created by <%= link_to @article.user.name, user_path(@article.user.id) %>, <%=@article.created_at%></p>
+	<p style="margin-top: 10px; color: gray;">Created by <%= link_to @article.user.name, user_path(@article.user.id) %> at <%=@article.created_at.to_formatted_s(:long_ordinal)%></p>
 	<% if can? :update, @article %>
 		<%= link_to 'Edit', edit_article_path(@article) %>
 	<% end %>
