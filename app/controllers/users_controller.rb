@@ -19,5 +19,6 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
     	@user.set_admin
     	@user.save
+    	redirect_to @user
 	end
 end
