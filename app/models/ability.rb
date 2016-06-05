@@ -5,7 +5,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
         can [:read, :destroy], :all
-        can :create, [Article, Comment]
+        can [:create, :update], [Article, Comment]
         can :update, User, :id => user.id
         can :update, User, :role => { :name => "user" }
     else

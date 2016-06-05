@@ -8,6 +8,10 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
+	<div class="container" style="text-align: center;">
+		<span class="succ"><%= notice %></span>
+		<span class="error"><%= alert %></span>
+	</div>
 	<%= yield %>
 	<%= render 'layouts/footer' %>
 </body>
